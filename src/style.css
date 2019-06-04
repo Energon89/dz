@@ -32,8 +32,8 @@ body {
 }
 
 h1 {
-  text-align:center;
-  font-size:32px;
+    text-align:center;
+    font-size:26px;
 	font-weight: normal;
 	color: #fff;
 	color: rgba(255, 255, 255, 0.8);
@@ -46,14 +46,26 @@ h1 {
 	font-weight: normal;
 	color: #fff;
 	color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 1px;
-  display:block; position:relative; text-decoration:none;
+    letter-spacing: 1px;
+    display:block; position:relative; text-decoration:none;
 }
 
-#domainname a:hover {
+#domainname a:hover{
 	text-decoration:underline;
 }
 
+#linkIt{
+	font-size:26px;
+	font-weight: normal;
+	color: #fff;
+	color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+    display:block; position:relative; text-decoration:none;
+}
+
+#linkIt:hover {
+	text-decoration:underline;
+}
 
 #tcHolder {
 	padding: 20px;
