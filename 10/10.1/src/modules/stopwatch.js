@@ -3,10 +3,10 @@ const htmlElements = {
     buttons: document.querySelectorAll('.container [data-mode="stopwatch"] .buttons button')
 };
 
-let startTime;
-let time;
+let startTime = 0;
+let time, hours, minutes, seconds;
 let isRunning = false;
-let currentTime;
+
 
 function Stopwatch() {};
   
@@ -20,9 +20,8 @@ Stopwatch.prototype.init = function() {
     switch (mode) {
         case 'start':
         if(!isRunning){
-        startTime = new Date().getTime();;
         isRunning = true;
-        time = setInterval(startTimer, 1000);}
+        startTimer(startTime);}
         break;
         case 'stop':
         clearInterval(time);
@@ -31,16 +30,24 @@ Stopwatch.prototype.init = function() {
         case 'reset':
         isRunning = false; 
         clearInterval(time);
+        startTime = 0;
         htmlElements.output.innerText = '00:00:00';
     }
 };
 
-function startTimer(){
+
+function startTimer(duration) {
     if(isRunning){
-    const difference = (new Date().getTime() - startTime) / 1000;
-    let seconds = parseInt(difference % 60);
-    let minutes = parseInt(difference / 60);
-    let hours = parseInt(difference/3600);
+    const start = new Date().getTime();
+
+    function timer () {
+    const difference = duration + ((new Date().getTime() - start) / 1000);
+    seconds = parseInt(difference % 60);
+    minutes = parseInt((difference / 60) % 60);
+    hours = parseInt(difference/3600);
+
+    startTime = hours*3600 + minutes*60 + seconds;
+
     if (hours < 10) {
         hours = '0' + hours;
     }
@@ -52,6 +59,8 @@ function startTimer(){
     }
     
     htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;}
+    timer();
+    time = setInterval(timer, 1000);}
 }
 
   export { Stopwatch };
