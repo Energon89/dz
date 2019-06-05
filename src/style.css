@@ -137,14 +137,3 @@ a{-webkit-tap-highlight-color:initial}
 	background-color:#565656; text-decoration:underline;}
 .ja_{position:absolute; top:0px;right:0.5em; background-position:center right; 
 	background-repeat:no-repeat; background-size:auto 1em; height:100%; width:25%;}
-	ul {
-		display: block;
-		margin: 0;
-		padding: 0;
-		list-style: none;}
-		ul.submenu > a {
-			display: block;
-			padding: 10px;
-			color: white;
-			background-color: red;
-			text-decoration: none;
