@@ -3,13 +3,13 @@ function Person(name, age, education) {
     this.age = age;
     this.education = education;
     this.teach = false;
-    const tired = true;
+    const tired = true; //область видимости функция-конструктор Person
     this.workTime = 0;
 
     const countTime = function() {
-        const start = 15;
-        const end = 19;
-        const workTime = end - start;
+        const start = 15; //область видимости countTime
+        const end = 19; //область видимости countTime
+        const workTime = end - start; //область видимости countTime
         return workTime;
     }
 
@@ -18,12 +18,18 @@ function Person(name, age, education) {
         if (tired) {
         console.log(`${this.name} устал, он работает ${this.workTime} час(а/ов).`);}
     };
+
+    this.checkIfOld = function() {
+    for ( let i=1; i<=this.age; i++ ) {
+        let age = [i];} //область видимости цикл for
+    console.log(`${this.name}  ${age}  лет, он уже большой`);}
 }
 
 Person.prototype.teachJs = function(teach){
     this.teach = teach;
     if (this.teach) {
-        console.log(`${this.name} учит JS.`);
+        const message = `${this.name} учит JS.`; //область видимости оператор if
+        console.log(message);
     }
 };
 

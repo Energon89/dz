@@ -5,12 +5,12 @@ function Computer(quantity, ok) {
     this.quantityBroken = 0;
 
     const countBroken = function() {
-        return (quantity - ok + brokenOld);
+        return quantity - ok + brokenOld;
     }
 
     this.checkIfNeedsRepair = function() {
         this.quantityBroken = countBroken();
-        console.log(`Необходимо ремонтировать ${this.quantityBroken} ПК.`);
+        console.log(`Необходимо ремонтировать всего ${this.quantityBroken} ПК.`);
     };
 }
 

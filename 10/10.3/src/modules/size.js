@@ -8,7 +8,8 @@ function Size(height, width, length) {
     this.passed = 0;
 
     const countDifference = function() {
-        return year - lastRepairs;
+        const difference = year - lastRepairs; //область видимости метод countDifference
+        return difference;
     }
 
     this.checkIfNeedRenovation = function() {
@@ -18,7 +19,8 @@ function Size(height, width, length) {
 }
 
 Size.prototype.writeSize = function() {
-    this.name = 57;
+    const name = 57; //область видимости метод writeSize
+    this.name = name;
     console.log(`Размеры аудитории ${this.name} - высота: ${this.height} м; ширина: ${this.width} м; длина: ${this.length} м.`);
 };
 
