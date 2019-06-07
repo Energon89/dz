@@ -40,7 +40,7 @@ function startTimer(duration) {
     if(isRunning){
     const start = new Date().getTime();
 
-    function timer () {
+    time = setInterval( function() {
     const difference = duration + ((new Date().getTime() - start) / 1000);
     seconds = parseInt(difference % 60);
     minutes = parseInt((difference / 60) % 60);
@@ -49,18 +49,18 @@ function startTimer(duration) {
     startTime = hours*3600 + minutes*60 + seconds;
 
     if (hours < 10) {
-        hours = '0' + hours;
+        hours = `0${hours}`;
     }
     if (minutes < 10) {
-        minutes = '0' + minutes;
+        minutes = `0${minutes}`;
     }
     if (seconds < 10) {
-        seconds = '0' + seconds;
+        seconds = `0${seconds}`;
     }
     
-    htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;}
-    timer();
-    time = setInterval(timer, 1000);}
+    htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
+        }, 1000);
+    }
 }
 
   export { Stopwatch };

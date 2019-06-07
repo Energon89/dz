@@ -28,44 +28,50 @@ Timer.prototype.init = function() {
         isRunning = false;
         break;
         case 'reset':
-        clearInterval(time);
-        isRunning = false;
-        startTime = 300;
+        resetTimer();
         htmlElements.output.innerText = '00:05:00';
+        break;
     }
 };
 
 function startTimer(duration) {
     if (isRunning) {
-    const start = Date.now(); 
-    let diff;
+    let start = Date.now(); 
+    let diff = 0;
 
-    function timer() {
-        // get the number of seconds that have elapsed since 
-        // startTimer() was called
-        diff = duration - (((Date.now() - start) / 1000) | 0);
+    time = setInterval(function() {
 
-        // does the same job as parseInt truncates the float
-        hours = (diff/3600) | 0;
-        minutes = (diff / 60) | 0;
-        seconds = (diff % 60) | 0;
+        diff = duration - ((Date.now() - start) / 1000);
+
+        hours = parseInt(diff/3600);
+        minutes = parseInt((diff / 60)% 60);
+        seconds = parseInt(diff % 60);
         startTime = hours*3600 + minutes*60 + seconds;
 
-        hours = hours <10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        if (hours < 10) {
+            hours = `0${hours}`;
+        }
+        if (minutes < 10) {
+            minutes = `0${minutes}`;
+        }
+        if (seconds < 10) {
+            seconds = `0${seconds}`;
+        }
 
         htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
 
         if (diff <= 0) {
-            // add one second so that the count down starts at the full duration
-            // example 05:00 not 04:59
             start = Date.now() + 1000;
+            resetTimer();
         }
-    };
-    // we don't want to wait a full second before the timer starts
-    timer();
-    time = setInterval(timer, 1000);}
+      }, 1000);
+    }
+}
+
+function resetTimer() {
+    clearInterval(time);
+    isRunning = false;
+    startTime = 300;
 }
 
 export { Timer };
