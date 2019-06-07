@@ -6,10 +6,10 @@ function Person(name, age, education) {
     const tired = true; //область видимости функция-конструктор Person
     this.workTime = 0;
 
-    const countTime = function() {
-        const start = 15; //область видимости countTime
-        const end = 19; //область видимости countTime
-        const workTime = end - start; //область видимости countTime
+    const countTime = function() { //область видимости функция-коструктор Person
+        const start = 15; //область видимости функциональное выражение countTime
+        const end = 19; //область видимости функциональное выражание countTime
+        const workTime = end - start; //область видимости функциональное выражание countTime
         return workTime;
     }
 

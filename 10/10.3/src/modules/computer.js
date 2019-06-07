@@ -1,10 +1,10 @@
 function Computer(quantity, ok) {
     this.quantity = quantity;
     this.ok = ok;
-    const brokenOld = 5;
+    const brokenOld = 5; //область видимости функция-коструктор Computer
     this.quantityBroken = 0;
 
-    const countBroken = function() {
+    const countBroken = function() { //область видимости функция-коструктор Computer
         return quantity - ok + brokenOld;
     }
 

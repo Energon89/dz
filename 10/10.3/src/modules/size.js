@@ -3,12 +3,12 @@ function Size(height, width, length) {
     this.width = width;
     this.length = length;
     this.name = 53.1;
-    const year = 2019;
-    const lastRepairs = 2010;
+    const year = 2019; //область видимости функция-конструктор Size
+    const lastRepairs = 2010; //область видимости функция-конструктор Size
     this.passed = 0;
 
-    const countDifference = function() {
-        const difference = year - lastRepairs; //область видимости метод countDifference
+    const countDifference = function() { //область видимости функция-коструктор Size
+        const difference = year - lastRepairs; //область видимости функциональное выражение countDifference
         return difference;
     }
 

@@ -6,8 +6,8 @@ function People(quantity, male, female) {
     this.percent = 0;
     const pass = 9; //область видимости функция-конструктор People
 
-    const countPercent = function() {
-        const percent = parseInt((quantity - pass)/quantity*100); //область видимости метод countPercent
+    const countPercent = function() { //область видимости функция-коструктор People
+        const percent = parseInt((quantity - pass)/quantity*100); //область видимости функциональное выражение  countPercent
         return percent;
     }
    

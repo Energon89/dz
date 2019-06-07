@@ -1,4 +1,4 @@
-const currentTime = new Date();//область видимости текущий модуль room.js
+const currentTime = new Date(); //область видимости текущий модуль room.js
 
 function Room(number, computer, size, lastClean) {
     this.number = number;
@@ -9,15 +9,15 @@ function Room(number, computer, size, lastClean) {
     this.currentPeriod = 0;
     this.lastClean = lastClean;
 
-    const countTime = function() {
-        const timeStrLong  = currentTime.toTimeString(); //область видимости метод countTime
-        const timeStr = timeStrLong.split(' ')[0]; //область видимости метод countTime
-        const timeStrShort = timeStr.split(':')[0]; //область видимости метод countTime
+    const countTime = function() { //область видимости функция-коструктор Room
+        const timeStrLong  = currentTime.toTimeString(); //область видимости функциональное выражение countTime
+        const timeStr = timeStrLong.split(' ')[0]; //область видимости функциональное выражение countTime
+        const timeStrShort = timeStr.split(':')[0]; //область видимости функциональное выражение countTime
         return timeStrShort;
     }
 
     this.cleanRoom = function() {
-        const currentPeriod = Math.abs(countTime() - this.lastClean); //область видимости метод cleanRoom
+        const currentPeriod = Math.abs(countTime() - this.lastClean); //область видимости функциональное выражение cleanRoom
         this.currentPeriod = currentPeriod;
         if (this.currentPeriod > period) {
             console.log(`Необходимо убрать комнату ${this.number}, прошло ${this.currentPeriod} час(а/ов).`);

@@ -5,13 +5,13 @@
       import { Specifications } from './specifications.js';
       import { Person } from './person.js';
 
-      const myPerson = new Person('Евгений', 30, 'высшее', true);
-      const specifications57 = new Specifications(7, 'Apple', 'NVidia', '19"');
-      const computerRoom57 = new Computer(20, 18);
-      const peopleRoom57 = new People(12, 9, 3);
-      const sizeRoom57 = new Size(2.5, 6, 7);
+      const myPerson = new Person('Евгений', 30, 'высшее', true); //область видимости модуль main.js
+      const specifications57 = new Specifications(7, 'Apple', 'NVidia', '19"'); //область видимости модуль main.js
+      const computerRoom57 = new Computer(20, 18); //область видимости модуль main.js
+      const peopleRoom57 = new People(12, 9, 3); //область видимости модуль main.js
+      const sizeRoom57 = new Size(2.5, 6, 7); //область видимости модуль main.js
       computerRoom57.specifications = specifications57;
-      const room57 = new Room(57, computerRoom57, sizeRoom57, 8);
+      const room57 = new Room(57, computerRoom57, sizeRoom57, 8); //область видимости модуль main.js
 
       console.log(room57);
 
