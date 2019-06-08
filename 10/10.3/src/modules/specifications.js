@@ -7,16 +7,16 @@ function Specifications(numberPc, cpu, gpu, monitor) {
     this.checkCpu = function() {
         switch (this.cpu) {
             case 'Intel':
-            var message = `Компьютер № ${this.numberPc} на базе ${this.cpu}.`;  //область видимости оператор switch
-            console.log(message);
+            const message1 = `Компьютер № ${this.numberPc} на базе ${this.cpu}.`;  //область видимости оператор switch case 'Intel'
+            console.log(message1);
             break;
             case 'AMD':
-            message = `Компьютер № ${this.numberPc} на базе ${this.cpu}, греется печка.`;
-            console.log(message);
+            const message2 = `Компьютер № ${this.numberPc} на базе ${this.cpu}, греется печка.`; //область видимости оператор switch case 'AMD'
+            console.log(message2);
             break;
             case 'Apple':
-            message = `Компьютер № ${this.numberPc} на базе ${this.cpu}, мажер.`;
-            console.log(message);
+            const message3 = `Компьютер № ${this.numberPc} на базе ${this.cpu}, мажер.`; //область видимости оператор switch case 'Apple'
+            console.log(message3);
             break;
         }
     };

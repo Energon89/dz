@@ -19,7 +19,7 @@ Timer.prototype.init = function() {
   function buttonClicked (mode){
     switch (mode) {
         case 'start':
-        if(!isRunning){
+        if(!isRunning){ 
         isRunning = true;
         startTimer(startTime);}
         break;
@@ -35,17 +35,16 @@ Timer.prototype.init = function() {
 };
 
 function startTimer(duration) {
-    if (isRunning) {
-    let start = Date.now(); 
-    let diff = 0;
+    const start = new Date().getTime(); 
+    //let diff;
 
     time = setInterval(function() {
 
-        diff = duration - ((Date.now() - start) / 1000);
+     let diff = duration - ((new Date().getTime() - start) / 1000);
 
-        hours = parseInt(diff/3600);
-        minutes = parseInt((diff / 60)% 60);
-        seconds = parseInt(diff % 60);
+        hours = parseInt(diff / 3600);
+        minutes = parseInt((diff / 60) % 60);
+        seconds = (diff % 60);
         startTime = hours*3600 + minutes*60 + seconds;
 
         if (hours < 10) {
@@ -61,12 +60,12 @@ function startTimer(duration) {
         htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
 
         if (diff <= 0) {
-            start = Date.now() + 1000;
+            //start = new Date().getTime() + 1000;
             resetTimer();
         }
       }, 1000);
     }
-}
+
 
 function resetTimer() {
     clearInterval(time);
