@@ -28,16 +28,14 @@ Stopwatch.prototype.init = function() {
         isRunning = false; 
         break;
         case 'reset':
-        isRunning = false; 
-        clearInterval(time);
-        startTime = 0;
+        resetTimer();
         htmlElements.output.innerText = '00:00:00';
     }
 };
 
 
 function startTimer(duration) {
-    if(isRunning){
+
     const start = new Date().getTime();
 
     time = setInterval( function() {
@@ -59,8 +57,13 @@ function startTimer(duration) {
     }
     
     htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
-        }, 1000);
-    }
+    }, 1000);
+}
+
+function resetTimer() {
+    clearInterval(time);
+    isRunning = false;
+    startTime = 0;
 }
 
   export { Stopwatch };

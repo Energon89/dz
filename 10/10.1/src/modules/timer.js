@@ -35,12 +35,11 @@ Timer.prototype.init = function() {
 };
 
 function startTimer(duration) {
-    let start = new Date().getTime(); 
-    let diff;
+    let start = new Date().getTime();
 
     time = setInterval(function() {
 
-        diff = Math.ceil(duration - ((new Date().getTime() - start) / 1000));
+        const diff = Math.ceil(duration - ((new Date().getTime() - start) / 1000));
 
         hours = parseInt(diff / 3600);
         minutes = parseInt((diff / 60) % 60);
