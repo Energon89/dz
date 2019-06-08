@@ -39,11 +39,12 @@ function startTimer(duration) {
 
     time = setInterval(function() {
 
-        const diff = duration - Math.round((new Date().getTime() - start) / 1000);
+        const difference = duration - Math.round((new Date().getTime() - start) / 1000);
 
-        hours = parseInt(diff / 3600);
-        minutes = parseInt((diff / 60) % 60);
-        seconds = parseInt(diff % 60);
+        hours = parseInt(difference / 3600);
+        minutes = parseInt((difference / 60) % 60);
+        seconds = parseInt(difference % 60);
+
         startTime = hours*3600 + minutes*60 + seconds;
 
         if (hours < 10) {
@@ -58,7 +59,7 @@ function startTimer(duration) {
 
         htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
 
-        if (diff <= 0) {
+        if (difference <= 0) {
             start = new Date().getTime() + 1000;
             resetTimer();
         }

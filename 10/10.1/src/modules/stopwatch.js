@@ -40,6 +40,7 @@ function startTimer(duration) {
 
     time = setInterval( function() {
     const difference = duration + ((new Date().getTime() - start) / 1000);
+    
     seconds = parseInt(difference % 60);
     minutes = parseInt((difference / 60) % 60);
     hours = parseInt(difference/3600);
