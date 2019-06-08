@@ -35,16 +35,16 @@ Timer.prototype.init = function() {
 };
 
 function startTimer(duration) {
-    const start = new Date().getTime(); 
-    //let diff;
+    let start = new Date().getTime(); 
+    let diff;
 
     time = setInterval(function() {
 
-     let diff = duration - ((new Date().getTime() - start) / 1000);
+        diff = Math.ceil(duration - ((new Date().getTime() - start) / 1000));
 
         hours = parseInt(diff / 3600);
         minutes = parseInt((diff / 60) % 60);
-        seconds = (diff % 60);
+        seconds = parseInt(diff % 60);
         startTime = hours*3600 + minutes*60 + seconds;
 
         if (hours < 10) {
@@ -60,7 +60,7 @@ function startTimer(duration) {
         htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
 
         if (diff <= 0) {
-            //start = new Date().getTime() + 1000;
+            start = new Date().getTime() + 1000;
             resetTimer();
         }
       }, 1000);

@@ -13,6 +13,7 @@ function init() {
   tabs.init();
   stopwatch.init();
   timer.init();
+  tabs.init('clock');
 }
 
 init();

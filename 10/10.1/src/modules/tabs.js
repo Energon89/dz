@@ -5,11 +5,11 @@ const htmlElements = {
 
 function Tabs() {};
 
-Tabs.prototype.init = function() {
+Tabs.prototype.init = function(mode) {
     htmlElements.links.forEach(function(link) {
         link.addEventListener('click', linkClicked);
     });
-    enableTab('clock');
+    enableTab(mode);
 };
 
 function linkClicked() {
