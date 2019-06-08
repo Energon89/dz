@@ -39,7 +39,7 @@ function startTimer(duration) {
 
     time = setInterval(function() {
 
-        const diff = Math.ceil(duration - ((new Date().getTime() - start) / 1000));
+        const diff = duration - Math.round((new Date().getTime() - start) / 1000);
 
         hours = parseInt(diff / 3600);
         minutes = parseInt((diff / 60) % 60);
