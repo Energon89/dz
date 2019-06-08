@@ -30,9 +30,9 @@ Stopwatch.prototype.init = function() {
         case 'reset':
         resetTimer();
         htmlElements.output.innerText = '00:00:00';
+        break;
     }
 };
-
 
 function startTimer(duration) {
 
