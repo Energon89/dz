@@ -2,7 +2,8 @@ let arr = [];
 
 function copyObject(obj) {
   if (arr.indexOf(obj) > -1) {
-    return `Циклическая ссылка!`;
+    console.log(`Цикличная ссылка на индексе ${arr.indexOf(obj)}`);
+    return;
   }
 
   arr.push(obj);
@@ -26,8 +27,15 @@ const obj1 = {
     value: 2080,
     specification: {
       mhz: 1635,
-      gbps: 14
+      gbps: 14,
+      name: "Nvidia"
+    },
+    displaySpecification() {
+      console.log(`GPU: ${this.specification.name}`);
     }
+  },
+  displayCpu() {
+    console.log(`CPU: ${this.cpu}`);
   },
   circular: "circular"
 };
@@ -36,5 +44,11 @@ obj1.circular = obj1;
 
 const obj2 = copyObject(obj1);
 
+obj1.displayCpu();
+obj2.displayCpu();
+
+obj1.gpu.displaySpecification();
+obj2.gpu.displaySpecification();
+
 console.log(obj2);
-console.log(arr); //здесь можно проверить цикличность ссылки нажав на circular в concole
+console.log(arr);
