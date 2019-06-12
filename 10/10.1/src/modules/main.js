@@ -10,7 +10,6 @@ const timer = new Timer();
 
 function init() {
   clock.init();
-  tabs.init();
   stopwatch.init();
   timer.init();
   tabs.init("clock");

@@ -64,7 +64,7 @@ function startTimer(duration) {
     htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
 
     if (difference <= 0) {
-      start = new Date().getTime() + 1000;
+      //start = new Date().getTime() + 1000;
       resetTimer();
     }
   }, 1000);
