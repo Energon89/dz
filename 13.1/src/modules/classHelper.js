@@ -1,7 +1,7 @@
 function addClass(className, elem) {
-  for (let i = 0; i < elem.length; i++) {
-    elem[i].classList.add(className);
-  }
+  elem.forEach(function(elem) {
+    elem.classList.add(className);
+  });
 }
 
 function removeClass(className, elem) {

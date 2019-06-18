@@ -1,3 +1,5 @@
+import { ClassHelper } from "./classHelper.js";
+
 function StopwatchTimer(initMode, initSeconds) {
   let mode = initMode;
   let time;
@@ -6,6 +8,9 @@ function StopwatchTimer(initMode, initSeconds) {
   this.htmlElements = {
     output: document.querySelector(
       `.container [data-mode = "${mode}"] .output`
+    ),
+    buttons: document.querySelectorAll(
+      `.container .tabs [data-mode="${mode}"] .buttons button`
     ),
     startButton: document.querySelector(
       `.container .tabs [data-mode="${mode}"] .buttons .start`
@@ -25,23 +30,20 @@ function StopwatchTimer(initMode, initSeconds) {
   htmlElements.resetButton.addEventListener("click", onResetButtonClick);
 
   function onStartButtonClick() {
-    htmlElements.stopButton.setAttribute("style", "pointer-events: auto");
-    htmlElements.resetButton.setAttribute("style", "pointer-events: auto");
-    htmlElements.startButton.setAttribute("style", "pointer-events: none");
+    ClassHelper.removeClass("disabled", htmlElements.buttons);
+    ClassHelper.addClass("disabled", [htmlElements.startButton]);
     startTimer(startTime);
   }
 
   function onStopButtonClick() {
-    htmlElements.startButton.setAttribute("style", "pointer-events: auto");
-    htmlElements.resetButton.setAttribute("style", "pointer-events: auto");
-    htmlElements.stopButton.setAttribute("style", "pointer-events: none");
+    ClassHelper.removeClass("disabled", htmlElements.buttons);
+    ClassHelper.addClass("disabled", [htmlElements.stopButton]);
     clearInterval(time);
   }
 
   function onResetButtonClick() {
-    htmlElements.stopButton.setAttribute("style", "pointer-events: auto");
-    htmlElements.startButton.setAttribute("style", "pointer-events: auto");
-    htmlElements.resetButton.setAttribute("style", "pointer-events: none");
+    ClassHelper.removeClass("disabled", htmlElements.buttons);
+    ClassHelper.addClass("disabled", [htmlElements.resetButton]);
     clearInterval(time);
     startTime = initSeconds;
     if (mode === "timer") {
@@ -81,10 +83,9 @@ function StopwatchTimer(initMode, initSeconds) {
 
       if (difference <= 0) {
         clearInterval(time);
-        startTime = initSeconds;
-        htmlElements.stopButton.setAttribute("style", "pointer-events: auto");
-        htmlElements.startButton.setAttribute("style", "pointer-events: auto");
-        htmlElements.resetButton.setAttribute("style", "pointer-events: auto");
+        ClassHelper.removeClass("disabled", htmlElements.buttons);
+        ClassHelper.addClass("disabled", [htmlElements.stopButton]);
+        ClassHelper.addClass("disabled", [htmlElements.startButton]);
       }
     }, 1000);
   }
