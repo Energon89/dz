@@ -48,7 +48,9 @@ function StopwatchTimer(initMode, initSeconds) {
     startTime = initSeconds;
     if (mode === "timer") {
       htmlElements.output.innerText = "00:05:00";
-    } else htmlElements.output.innerText = "00:00:00";
+    } else {
+      htmlElements.output.innerText = "00:00:00";
+    }
   }
 
   function startTimer(duration) {
