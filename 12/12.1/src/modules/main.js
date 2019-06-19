@@ -1,4 +1,4 @@
-let arr = [];
+const arr = [];
 
 function copyObject(obj) {
   if (arr.indexOf(obj) > -1) {
