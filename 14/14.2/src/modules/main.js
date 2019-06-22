@@ -1,6 +1,6 @@
-function Processor() {} // Создается Processor, создание Obj8 на основе базового объекта Obj5.
-// Свойство __proto__ объекта 8 указывает на объект 5, Processor.prototype указывает на объект 8,
-// свойство constructor объекта 8 указывает на Processor.prototype.
+function Processor() {} // Создается Processor, создание Obj4 на основе базового объекта Obj5.
+// Свойство __proto__ объекта 4 указывает на объект 5, Processor.prototype указывает на объект 4,
+// свойство constructor объекта 4 указывает на Processor.prototype.
 
 function MicroProcessor() {} // Создается MicroProcessor, создание Obj7 на основе базового объекта Obj5.
 // Свойство __proto__ объекта 7 указывает на объект 5, MicroProcessor.prototype указывает на объект 7,
