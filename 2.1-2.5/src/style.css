@@ -1,0 +1,21 @@
+body {
+  background-color: var(--main-color);
+}
+.white {
+  background-color: white;
+}
+.blue {
+  background-color: blue;
+}
+.brown {
+  background-color: brown;
+}
+.cyan {
+  background-color: cyan;
+}
+.darkmagenta {
+  background-color: DarkMagenta;
+}
+.navy {
+  background-color: navy;
+}
