@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS Boilerplace</title>
+    <link rel="stylesheet" href="../src/style.css" />
+  </head>
+  <body>
+    <form onsubmit="plus()  ; return false;" id="button1"></form>
+    <form onsubmit="minus() ; return false;" id="button2"></form>
+    <form onsubmit="multi() ; return false;" id="button3"></form>
+    <form onsubmit="division() ; return false;" id="button4"></form>
+    <form onclick="reset()" id="reset"></form>
+    <input id="text1" type="text" /><br />
+    <input id="text2" type="text" /><br />
+    <input type="submit" form="button1" value="+" />
+    <input type="submit" form="button2" value="-" />
+    <input type="submit" form="button3" value="*" />
+    <input type="submit" form="button4" value="/" />
+    <input type="submit" form="reset" value="C" />
+    <script type="module" src="../src/modules/main.js"></script>
+  </body>
+</html>
