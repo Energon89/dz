@@ -1,7 +1,7 @@
 import { StopwatchTimer } from "./stopwatchTimer.js";
 
 function Timer() {
-  const callFunction = StopwatchTimer.bind(this, "timer", 5);
+  const callFunction = StopwatchTimer.bind(this, "timer", 300);
   callFunction();
 }
 
