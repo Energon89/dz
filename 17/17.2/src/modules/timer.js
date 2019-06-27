@@ -1,7 +1,7 @@
 import { StopwatchTimer } from "./stopwatchTimer.js";
 
 function Timer() {
-  const callFunction = StopwatchTimer.bind(this, "timer", 300);
+  const callFunction = StopwatchTimer.bind(this, "timer", 5);
   callFunction();
 }
 
@@ -11,12 +11,8 @@ Timer.prototype.showInfo = function() {
   console.log(this);
 };
 
-Timer.prototype.calculateDifference = function(duration, start, time) {
-  const difference =
-    duration - Math.round((new Date().getTime() - start) / 1000);
-  if (difference <= 0) {
-    clearTimeout(time);
-  }
+Timer.prototype.calculateDifference = function(duration, start) {
+  let difference = duration - Math.round((new Date().getTime() - start) / 1000);
   return difference;
 };
 

@@ -2,7 +2,7 @@ import { ClassHelper } from "./classHelper.js";
 
 function StopwatchTimer(initMode, initSeconds) {
   let mode = initMode;
-  let time, start, currentTime;
+  let time, start, currentTime, difference;
   let startTime = initSeconds;
   const self = this;
 
@@ -50,7 +50,7 @@ function StopwatchTimer(initMode, initSeconds) {
   };
 
   const myInterval = () => {
-    const difference = self.calculateDifference(startTime, start, time);
+    difference = self.calculateDifference(startTime, start);
 
     let hours = parseInt(difference / 3600);
     let minutes = parseInt((difference / 60) % 60);
@@ -71,6 +71,10 @@ function StopwatchTimer(initMode, initSeconds) {
     htmlElements.output.innerText = `${hours}:${minutes}:${seconds}`;
 
     time = setTimeout(myInterval, 1000);
+
+    if (difference <= 0) {
+      clearTimeout(time);
+    }
   };
 
   htmlElements.startButton.addEventListener("click", onStartButtonClick);
