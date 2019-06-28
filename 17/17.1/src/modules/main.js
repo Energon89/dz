@@ -1,16 +1,18 @@
-function sum(value) {
-  let result = 0;
+import { Clock } from "./clock.js";
+import { Tabs } from "./tabs.js";
+import { Timer } from "./timer.js";
+import { Stopwatch } from "./stopwatch.js";
 
-  function sum2(value) {
-    result += value;
-    return sum2;
-  }
+const clock = new Clock();
+const tabs = new Tabs();
+const stopwatch = new Stopwatch();
+const timer = new Timer();
 
-  sum2.showResult = function() {
-    console.log(result);
-  };
-
-  return sum2(value);
+function init() {
+  clock.init();
+  tabs.init("clock");
 }
 
-sum(3)(7)(8)(-6)(-2).showResult();
+init();
+timer.showInfo();
+stopwatch.showInfo();
