@@ -41,6 +41,7 @@ function StopwatchTimer(initMode, initSeconds) {
   };
 
   const onResetButtonClick = () => {
+    clearTimeout(time);
     ClassHelper.removeClass("disabled", htmlElements.buttons);
     ClassHelper.addClass("disabled", [htmlElements.resetButton]);
     start = new Date().getTime();
