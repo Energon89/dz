@@ -13,9 +13,8 @@ const htmlElements = {
 htmlElements.loginButton.addEventListener("click", logIn);
 htmlElements.logoutButton.addEventListener("click", logOut);
 htmlElements.messageForm.addEventListener("submit", sendMessage);
-// Toggle for the button.
+// Toggle for the send button.
 htmlElements.messageInput.addEventListener("input", toggleButton);
-//htmlElements.messageInput.addEventListener("change", toggleButton);
 
 showMessages();
 
@@ -76,7 +75,7 @@ function sendMessage(event) {
   messages.push({
     name: "Energon",
     text: newMessageText,
-    profilePicUrl: "images/default_photo_profile.png"
+    profilePicUrl: "..//src/images/default_photo_profile.png"
   });
   showMessages();
 
@@ -95,6 +94,3 @@ function toggleButton() {
 //!!!End
 // initialize Firebase
 initFirebaseAuth();
-
-// We load currently existing chat messages and listen to new ones.
-//loadMessages();
