@@ -18,7 +18,7 @@
             <button class="btn btn-green">
               Login
             </button>
-            <button class="btn btn-red" hidden>
+            <button class="btn btn-red">
               Logout
             </button>
           </div>
@@ -49,26 +49,25 @@
       </div>
     </section>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <form class="login-form hidden">
+      <span class="close" title="Close Login">&times;</span>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
+      <h1>Login</h1>
 
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyABDUMgRjFt1fOMkGBlAHPPmc60uJdRKF4",
-        authDomain: "energetic-chat.firebaseapp.com",
-        databaseURL: "https://energetic-chat.firebaseio.com",
-        projectId: "energetic-chat",
-        storageBucket: "energetic-chat.appspot.com",
-        messagingSenderId: "442427121697",
-        appId: "1:442427121697:web:126f72564cab75fd"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-    </script>
+      <div class="txtb">
+        <input type="text" />
+        <span data-placeholder="Username"></span>
+      </div>
+
+      <div class="txtb">
+        <input type="password" />
+        <span data-placeholder="Password"></span>
+      </div>
+
+      <button type="submit" class="btn logbtn">Login</button>
+
+      <div class="buttom-text">Don't have account? <a href="#">Sign up</a></div>
+    </form>
 
     <script type="module" src="scripts/main.js"></script>
   </body>

@@ -1,3 +1,5 @@
+import { Login } from "./login.js";
+
 let messages = [];
 
 const htmlElements = {
@@ -10,7 +12,7 @@ const htmlElements = {
   authorName: document.querySelector(".chat-header__author")
 };
 
-htmlElements.loginButton.addEventListener("click", logIn);
+htmlElements.loginButton.addEventListener("click", Login);
 htmlElements.logoutButton.addEventListener("click", logOut);
 htmlElements.messageForm.addEventListener("submit", sendMessage);
 // Toggle for the button.
@@ -19,23 +21,7 @@ htmlElements.messageInput.addEventListener("input", toggleButton);
 
 showMessages();
 
-function logIn() {
-  // Sign in Firebase using popup auth and Google as the identity provider.
-  //const provider = new firebase.auth.GoogleAuthProvider();
-  //firebase.auth().signInWithPopup(provider);
-}
-
-// Signs-out of chat.
-function logOut() {
-  // Sign out of Firebase.
-  //firebase.auth().signOut();
-}
-
-// Initiate firebase auth.
-function initFirebaseAuth() {
-  // Listen to auth state changes.
-  //firebase.auth().onAuthStateChanged(authStateObserver);
-}
+function logOut() {}
 
 htmlElements.authorName.innerText = "Energon";
 
@@ -78,6 +64,7 @@ function sendMessage(event) {
     text: newMessageText,
     profilePicUrl: "images/default_photo_profile.png"
   });
+  console.log(messages);
   showMessages();
 
   htmlElements.messageInput.value = "";
@@ -91,10 +78,3 @@ function toggleButton() {
     htmlElements.sendButton.setAttribute("disabled", "true");
   }
 }
-
-//!!!End
-// initialize Firebase
-initFirebaseAuth();
-
-// We load currently existing chat messages and listen to new ones.
-//loadMessages();
