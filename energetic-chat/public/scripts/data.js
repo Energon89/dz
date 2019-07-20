@@ -11,9 +11,11 @@ function getJson(url, callback) {
 
 function Data() {}
 
-Data.prototype.getUsefulContents = function(url, callback) {
-  getJson(url, function(data) {
-    callback(JSON.parse(data));
+Data.prototype.getUsefulContents = function(url) {
+  return new Promise(function(resolve) {
+    getJson(url, function(data) {
+      resolve(JSON.parse(data));
+    });
   });
 };
 

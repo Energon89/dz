@@ -1,19 +1,20 @@
-import { Data } from "./data.js";
+import { MessageService } from "./messageService.js";
 
-const data = new Data();
-let newMessages = [];
-const jsonRequestURL = "./messages.json";
+const messageService = new MessageService();
 
-data.getUsefulContents(jsonRequestURL, function(data) {
-  newMessages = data;
-});
+var newMessages = [];
 
 function Messages() {}
 
-console.log(newMessages);
-
-Messages.prototype.init = function() {
-  setTimeout(showMessages, 100);
+Messages.prototype.init = function(uid) {
+  messageService
+    .getMessages()
+    .then(function(data) {
+      newMessages = data;
+    })
+    .then(function() {
+      showMessages(uid);
+    });
 };
 
 const htmlElements = {
@@ -28,7 +29,7 @@ htmlElements.messageForm.addEventListener("submit", sendMessage);
 // Toggle for the button.
 htmlElements.messageInput.addEventListener("input", toggleButton);
 
-function showMessages() {
+function showMessages(uid) {
   htmlElements.messageOutput.innerHTML = "";
 
   for (let i = 0; i < newMessages.length; i++) {
@@ -49,25 +50,30 @@ function showMessages() {
 
     const newMessage = document.createElement("li");
     newMessage.className = "message";
-    newMessage.classList.add("message--mine");
+    if (currentMessage.userId == uid) {
+      newMessage.classList.add("message--mine");
+    }
 
     newMessage.appendChild(authorPhoto);
     newMessage.appendChild(authorNameSpan);
     newMessage.appendChild(newMessageText);
     htmlElements.messageOutput.appendChild(newMessage);
+    scrollDown();
   }
 }
 
 function sendMessage(event) {
   event.preventDefault();
   const newMessageText = htmlElements.messageInput.value;
+  const userId = localStorage.getItem("userId");
+  const userName = localStorage.getItem("userName");
 
   newMessages.push({
-    userId: 1,
-    name: "Energon",
+    userId: userId,
+    name: userName,
     text: newMessageText
   });
-  showMessages();
+  showMessages(userId);
 
   htmlElements.messageInput.value = "";
   toggleButton();
@@ -80,7 +86,10 @@ function toggleButton() {
     htmlElements.sendButton.setAttribute("disabled", "true");
   }
 }
-showMessages();
-//localStorage.clear();
 
-export { Messages, newMessages };
+function scrollDown() {
+  htmlElements.messageOutput.scrollTop =
+    htmlElements.messageOutput.scrollHeight;
+}
+
+export { Messages };
