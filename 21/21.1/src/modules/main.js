@@ -1,16 +1,19 @@
-import makeSyncDelay from './syncDelay.js';
-import { runXhr } from './xmlHttpRequest.js';
-import { runSetTimeOut } from './setTimeOut.js';
-import { addEventListener } from './buttonClick.js';
+import { makeSyncDelay } from "./syncDelay.js";
+import runXhr from "./xmlHttpRequest.js";
+import { runSetTimeOut } from "./setTimeOut.js";
+import { addEventListener } from "./buttonClick.js";
 
-const url = 'https://jsonplaceholder.typicode.com/photos';
+const url1 = "https://jsonplaceholder.typicode.com/photos/1";
+const url2 = "https://jsonplaceholder.typicode.com/photos/2";
+const url3 = "https://jsonplaceholder.typicode.com/photos/3";
 
-console.log('sync code start');
+console.log("sync code start");
 
-makeSyncDelay('delay 1', 2, true);
-runSetTimeOut('stm 1', 90);
-runXhr('xhr 1', url);
-runXhr('xhr 2', url);
-addEventListener('btn');
+makeSyncDelay("delay 1", 4);
+runSetTimeOut("setTimeout 1", 80);
+runXhr("xhr 1", url1);
+runXhr("xhr 2", url2);
+runXhr("xhr 3", url3);
+addEventListener("buttonClick");
 
-console.log('sync code end');
+console.log("sync code end");
