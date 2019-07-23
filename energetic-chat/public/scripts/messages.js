@@ -26,6 +26,9 @@ const htmlElements = {
 };
 
 htmlElements.messageForm.addEventListener("submit", sendMessage);
+htmlElements.messageForm.addEventListener("keydown", function(e) {
+  if (e.keyCode === 13) sendMessage(e);
+});
 // Toggle for the button.
 htmlElements.messageInput.addEventListener("input", toggleButton);
 
