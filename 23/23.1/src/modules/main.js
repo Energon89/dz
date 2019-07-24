@@ -1,9 +1,9 @@
 function delay(ms) {
   return Promise.resolve().then(() => {
     return new Promise(resolve => {
-      //      setTimeout(() => {
-      //        resolve(ms);
-      //      }, ms);
+      //  setTimeout(() => {
+      //    resolve(ms);
+      //  }, ms);
       setTimeout(resolve.bind(null, ms), ms);
     });
   });
