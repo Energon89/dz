@@ -4,7 +4,7 @@ function delay(ms) {
       //      setTimeout(() => {
       //        resolve(ms);
       //      }, ms);
-      setTimeout(resolve.bind(this, ms), ms);
+      setTimeout(resolve.bind(null, ms), ms);
     });
   });
 }
