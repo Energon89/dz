@@ -1,7 +1,8 @@
 import { Data } from "./data.js";
 
 const data = new Data();
-const jsonRequestURL = "./users.json";
+const jsonRequestURL =
+  "https://my-json-server.typicode.com/Energon89/json-database/users/";
 
 function UsersService() {}
 
